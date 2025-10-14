@@ -1,3 +1,39 @@
+//Підготуйте дві реалізації функції `inc`:
+//- З сигнатурою `inc(n: number): number`,
+// приклад виклику: `const a = 5; const b = inc(a); console.dir({a, b});`
+
+function inc(n) {
+ return(n += 1) ; 
+}
+ const d_1 = 10 ; 
+ const d_2 = inc(d_1) ;
+ console.dir({d_1 , d_2}) ;
+
+ 
+
+
+
+//- З сигнатурою `inc(num: Num)`, де `Num` є об'єктом з полем `n`,
+//щоб функція змінила поле вихідного об'єкта, переданого за посиланням,
+//приклад виклику `const obj = { n: 5 }; inc(obj); console.dir(obj);`
+
+
+function inc(num) {
+    num.h += 3 ; 
+} 
+
+const obj = {h: 5};
+inc(obj);
+console.dir(obj);
+
+
+
+
+
+
+
+
+
 /*  ## Типи даних
 
 Підрахунок елементів різних типів у масиві.
@@ -34,4 +70,5 @@ for (var i_1 of M_2 ) {
        H_2[type] += 1 ;
      }
 }
+
 console.log(H_2)
