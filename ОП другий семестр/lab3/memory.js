@@ -1,22 +1,45 @@
+function memoize(fn, options = {}) {
+    const cache = new Map();
+    const maxS = options.maxS || Infinity;
+    const strat = options.strat || "LRU";
 
-if (cache.size >= maxSize) {
-    
-    if (strategy === "LRU") {
-        const oldestKey = cache.keys().next().value;
-        cache.delete(oldestKey);
-        
-    } else if (strategy === "LFU") {
-        let minCount = Infinity;
-        let lfuKey = null;
-        
-        for (const [key, record] of cache) {
-            if (record.count < minCount) {
-                minCount = record.count;
-                lfuKey = key;
+    return function(...arg) {
+        const key = JSON.stringify(arg);
+
+        if (cache.has(key)) {
+            const save = cache.get(key);
+            save.count += 1;   
+            return save.value; 
+        }
+
+        const result = fn(...arg);
+
+        if (cache.size >= maxS) {
+            if (strat === "LRU") {
+                const oldestKey = cache.keys().next().value;
+                cache.delete(oldestKey);
+            } else if (strat === "LFU") {
+                let min = Infinity;
+                let lfuKey = null;
+                for (const [k, record] of cache) {
+                    if (record.count < min) {
+                        min = record.count;
+                        lfuKey = k;
+                    }
+                }
+                cache.delete(lfuKey);
             }
         }
-        cache.delete(lfuKey);
-    }
+
+        cache.set(key, { value: result, count: 1 });
+        return result;
+    };
 }
 
-cache.set(key, { value: result, count: 1 });
+function add(a, b) {
+    console.log('Тут ще не кеш + обрахунок:' );
+    return a + b;
+}
+const smartAdd = memoize(add, { maxSize: 2, strategy: "LRU" });
+console.log(smartAdd(2, 2));
+console.log(smartAdd(2, 2));
