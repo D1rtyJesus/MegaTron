@@ -1,10 +1,10 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\artem\\source\\repos\\lab1\\lab1\\module1.cpp",
+        "Source": "c:\\users\\artem\\source\\oop\\lab1\\lab1\\module1.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "c:\\users\\artem\\source\\repos\\lab1\\lab1\\module1.h",
+            "c:\\users\\artem\\source\\oop\\lab1\\lab1\\module1.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\um\\windows.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\shared\\winapifamily.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\shared\\winpackagefamily.h",
@@ -309,7 +309,7 @@
             "d:\\vs microfost c++\\vc\\tools\\msvc\\14.51.36231\\include\\tuple",
             "d:\\vs microfost c++\\vc\\tools\\msvc\\14.51.36231\\include\\xpolymorphic_allocator.h",
             "d:\\vs microfost c++\\vc\\tools\\msvc\\14.51.36231\\include\\cctype",
-            "c:\\users\\artem\\source\\repos\\lab1\\lab1\\resource.h"
+            "c:\\users\\artem\\source\\oop\\lab1\\lab1\\resource.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
